@@ -10,7 +10,11 @@ import (
 
 var db *sql.DB
 
-func InitDB() {
+type ExpenseHandler struct {
+	DB *sql.DB
+}
+
+func (h *ExpenseHandler) Initialize() {
 	var err error
 	db, err = sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
@@ -25,5 +29,7 @@ func InitDB() {
 	if err != nil {
 		log.Fatal("can't create table", err)
 	}
+
+	h.DB = db
 
 }
