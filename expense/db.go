@@ -18,7 +18,7 @@ func InitDB() {
 	}
 
 	createTb := `
-	CREATE TABLE IF NOT EXISTS expenses ( id SERIAL PRIMARY KEY, title TEXT, amount INT, note TEXT, tag TEXT[] );
+	CREATE TABLE IF NOT EXISTS expenses ( id SERIAL PRIMARY KEY, title TEXT, amount INT, note TEXT, tags TEXT[] );
 	`
 	_, err = db.Exec(createTb)
 
